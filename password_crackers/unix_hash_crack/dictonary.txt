@@ -1,0 +1,5 @@
+bird
+egg
+root
+toor
+password
