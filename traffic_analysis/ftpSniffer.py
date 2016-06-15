@@ -1,4 +1,7 @@
 import optparse
+import logging
+# This turns off the output warning from scapy
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 from scapy.all import *
 
 def ftpSniff(pkt):
@@ -15,9 +18,9 @@ def ftpSniff(pkt):
 
 def main():
 	parser = optparse.OptionParser('usage %prog -i <interface>')
-	parser.add_option('-i', dest='interface', type='string', help='specify interfave to listen on')
+	parser.add_option('-i', dest='interface', type='string', help='specify interface to listen on')
 	(options, args) = parser.parse_args()
-	if options.interfave == None:
+	if options.interface == None:
 		print(parser.usage)
 		exit(0)
 	else:
@@ -27,6 +30,6 @@ def main():
 		sniff(filter='tcp port 21', prn=ftpSniff)
 	except KeyboardInterrupt:
 		exit(0)
-		
+
 if __name__ == '__main__':
 	main()
