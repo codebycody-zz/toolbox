@@ -1,8 +1,15 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-n', help='number of char to shift.', type=int, required=True)
+parser.add_argument('-s', help='string to be ciphered', required=True)
+args = parser.parse_args()
 #use a string like this, instead of ord()
-strs='abcdefghijklmnopqrstuvwxyz'
+strs = 'abcdefghijklmnopqrstuvwxyz'
+
 def shifttext(shift):
-	inp=raw_input('Input text here: ')
-	data=[]
+	inp  = args.s
+	data = []
 	#iterate over the text not some list
 	for i in inp:
 		# if the char is not a space ""
@@ -13,3 +20,10 @@ def shifttext(shift):
 			data.append(i)
 	output = ''.join(data)
 	return output
+
+def main():
+	print(shifttext(args.n))
+
+if __name__ == '__main__':
+	main()
+
