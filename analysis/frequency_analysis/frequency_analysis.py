@@ -9,25 +9,25 @@ args = parser.parse_args()
 
 
 def analysis_content():
-	char_dictionary = {}
-	if(args.s):
-		content = args.s
-	elif(args.f):
-		content = args.f
-		print('this option isn\'t completed yet please check back soon')
-		exit()
-	else:
-		print('Please set content to be analyzed')
-		exit()
+    char_dictionary = {}
+    if(args.s):
+        content = args.s
+    elif(args.f):
+        content = args.f
+        print('this option isn\'t completed yet please check back soon')
+        exit()
+    else:
+        print('Please set content to be analyzed')
+        exit()
 
-	for i in content:
-		char_dictionary[i] = content.count(i)
+    for i in content:
+        char_dictionary[i] = content.count(i)
 
 
-	return char_dictionary
+    return char_dictionary
 
 def main():
-	print(analysis_content())
+    print(analysis_content())
 
 if __name__ == '__main__':
-	main()
+    main()
